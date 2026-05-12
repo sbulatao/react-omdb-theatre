@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from 'react-router';
 
 export default function Nav() {
-
   return (
     <nav>
     <div className="navbar">
