@@ -27,7 +27,7 @@ export default function Landing() {
                     </div>
 
                     {/* IMG */}
-                    <div className="img__container">
+                    <div className="img__container title__subtitle-1">
                         <img src={UndrawMovie} alt="movie time" className="movie__time"/>
                     </div>
 
