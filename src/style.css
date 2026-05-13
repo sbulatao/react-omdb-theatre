@@ -505,6 +505,21 @@ img {
   text-align: center;
 }
 
+/* FEATURED */
+.movie__ratings {
+    /* margin-bottom: 8x; */
+    color: #fabf2a;
+}
+
+.movie__title .movie__year {
+    font-size: 24px;
+    /* margin-bottom: 8px; */
+}
+
+.boxoffice__pricing {
+    font-size: 24px;
+}
+
 
 /* MOVIES */
 .search-results {
@@ -591,10 +606,10 @@ select {
     transform: scale(1.03);
 }
 
-.movie__title .movie__year {
+/* .movie__title .movie__year {
     font-size: 24px;
     margin-bottom: 8px;
-}
+} */
 
 .movie__title:hover {
     text-decoration: underline;
@@ -843,7 +858,7 @@ select {
 
 /* @media(max-width: 768px) { */
 /* @media(max-width: 860px) { */
-@media(max-width: 945px) {
+@media(max-width: 1048px) {
 /* index.html :: change navbar to menu */
     .navbar__links {
         display: none;

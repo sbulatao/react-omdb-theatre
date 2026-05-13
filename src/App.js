@@ -3,6 +3,7 @@ import './style.css';
 import Nav from './components/Nav';
 import Landing from "./components/Landing";
 import Highlights from "./components/Highlights";
+import Featured from "./components/Featured";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Nav></Nav>
         <Landing></Landing>
         <Highlights></Highlights>
+        <Featured></Featured>
       </div>
     </Router>
   );

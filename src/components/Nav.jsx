@@ -22,11 +22,16 @@ export default function Nav() {
                     <Link to="/movies" className="navbar__link link__hover-effect">Find Your Movies</Link>
                 </li>
 
+
+                <li> {/* ADDING: LOGIN -- IN PROGRESS */}
+                    <Link to="/login" className='navbar__link'>Login</Link>
+                </li>
+
                 <li> {/* CONTACT */}
                     <Link to="/contact" className="button navbar__link--primary link__hover-effect" >Contact</Link>
                 </li>
-
-                <li> {/* ADDED: CART -- IN PROGRESS */}
+                
+                <li> {/* ADDING: CART -- IN PROGRESS */}
                     <Link to="/cart" className='navbar__link'>
                         <FontAwesomeIcon icon="shopping-cart"></FontAwesomeIcon>
                     </Link>

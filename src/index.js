@@ -5,9 +5,9 @@ import './animate.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faBars,faAdjust, faFilm, faCartShopping, faTimes, faSearch, faBolt, faTags } from '@fortawesome/free-solid-svg-icons';
+import { faBars,faAdjust, faFilm, faCartShopping, faTimes, faSearch, faBolt, faTags, faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faBars, faAdjust, faFilm, faCartShopping, faTimes, faSearch, faBolt, faTags)
+library.add(faBars, faAdjust, faFilm, faCartShopping, faTimes, faSearch, faBolt, faTags, faStar, faStarHalfAlt)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
