@@ -1,7 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import Highlight from './ui/Highlight'
 
-// ADDED FEATURE -- IN PROGRESS
+// ADDED SECTION
 
 export default function Highlights() {
   return (
@@ -14,36 +15,24 @@ export default function Highlights() {
                 </h2>
 
                 <div className="highlight__wrapper">
-                    <div className="highlight">
-                        <div className="highlight__img">
-                            <FontAwesomeIcon icon="bolt"></FontAwesomeIcon>
-                        </div>
-                        <h3 className="highlight__subtitle"> Easy and Quick </h3>
-                        <p className="highlight__para">
-                            Get access to the movies you have selected online.
-                        </p>
-                    </div>
+                    
+                    <Highlight 
+                        icon={<FontAwesomeIcon icon="bolt"></FontAwesomeIcon>} 
+                        title="Easy and Quick"
+                        para="Get access to the movies you have selected online." >
+                    </Highlight>
 
-                    <div className="highlight">
-                        <div className="highlight__img">
-                            <FontAwesomeIcon icon="film"></FontAwesomeIcon>
-                        </div>
-                        <h3 className="highlight__subtitle"> 10,000+ Movies </h3>
-                        <p className="highlight__para">
-                            OMDb Theater has movies in all your favorite categories.
-                        </p>
-                    </div>
+                    <Highlight 
+                        icon={<FontAwesomeIcon icon="film"></FontAwesomeIcon>} 
+                        title="10,000+ Movies"
+                        para="OMDb Theater has movies in all your favorite categories." >
+                    </Highlight>
 
-                    <div className="highlight">
-                        <div className="highlight__img">
-                            <FontAwesomeIcon icon="tags"></FontAwesomeIcon>
-                        </div>
-                        <h3 className="highlight__subtitle"> Affordable </h3>
-                        <p className="highlight__para">
-                            Get yoyr hands on popular movies.
-                        </p>
-                    </div>
-
+                    <Highlight 
+                        icon={<FontAwesomeIcon icon="tags"></FontAwesomeIcon>} 
+                        title="Affordable"
+                        para="Get your hands on popular movies" >
+                    </Highlight>
 
                 </div>
 
