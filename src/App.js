@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router";
+import { BrowserRouter as Router } from "react-router";
 import './style.css';
 import Nav from './components/Nav';
 import Landing from "./components/Landing";

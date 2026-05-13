@@ -30,8 +30,8 @@ export default function Highlights() {
 
                     <Highlight 
                         icon={<FontAwesomeIcon icon="tags"></FontAwesomeIcon>} 
-                        title="Affordable"
-                        para="Get your hands on popular movies" >
+                        title="Not So Affordable..."
+                        para="Get your hands on popular movies... hopefully." >
                     </Highlight>
 
                 </div>

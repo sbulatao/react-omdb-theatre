@@ -1,5 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from 'react-router'
 
 export default function Featured() {
   return (
@@ -7,18 +8,18 @@ export default function Featured() {
         <div className="container">
             <div className="row">
 
-                <h2 className="subtitle__title-1">
+                <h2 className="title__subtitle-1">
                     Featured <span className="highlights">Movies</span>
                 </h2>
 
                 <div className="movies">
                     <div className="movie">
 
-                        <a href="">
+                        <Link to="">
                             <figure className='movie__poster--wrapper'>
                                 <img src="https://m.media-amazon.com/images/M/MV5BNGNmNjI0ZmMtMzI5MC00ZjUyLWFlZDEtYjUyMGZlN2E3N2E2XkEyXkFqcGc@._V1_SX300.jpg" alt="" className="movie__poster" />
                             </figure>
-                        </a>
+                        </Link>
 
                         <div className="movie__title">The Mask</div>
                         <div className="movie__year">1994</div>
