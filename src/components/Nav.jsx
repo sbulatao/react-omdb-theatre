@@ -5,12 +5,12 @@ import { Link } from 'react-router';
 export default function Nav() {
   return (
     <nav>
-    <div className="navbar">
-        {/* NAVBAR LOGO */}
-        <div className="navbar__logo">
-            <FontAwesomeIcon icon="film" size='3x'></FontAwesomeIcon>
-            <div className="navbar__logo--title">OMDb Theater</div>
-        </div>
+        <div className="navbar">
+            {/* NAVBAR LOGO */}
+            <div className="navbar__logo">
+                <FontAwesomeIcon icon="film" size='3x'></FontAwesomeIcon>
+                <div className="navbar__logo--title">OMDb Theater</div>
+            </div>
 
             {/* LINKS */}
             <ul className="navbar__links">

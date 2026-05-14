@@ -16,6 +16,7 @@ function App() {
         <Highlights></Highlights>
         <Featured></Featured>
         <Explore></Explore>
+        <Footer></Footer>
       </div>
     </Router>
   );
