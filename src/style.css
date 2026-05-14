@@ -642,6 +642,7 @@ footer {
 
 .footer__logo {
   display: flex;
+  color: #fff;
 }
 
 .footer__logo--img {
