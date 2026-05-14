@@ -513,16 +513,21 @@ img {
 
 .movie__title .movie__year {
     font-size: 24px;
-    /* margin-bottom: 8px; */
 }
 
-.boxoffice__pricing {
-    font-size: 4px;
+.boxoffice__price {
+    font-size: 16px;
 }
-
 
 
 /* MOVIES */
+.movies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0 -24px;
+}
+
 .search-results {
     display: flex;
     flex-wrap: wrap;
@@ -622,6 +627,10 @@ select {
     cursor: not-allowed;
 }
 
+/* EXPLORE */
+#explore {
+  background-color: rgba(115, 66, 214, 0.1);
+}
 
 /* MODAL MOVIE */
 .modal__movie {

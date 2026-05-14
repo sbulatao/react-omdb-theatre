@@ -4,6 +4,8 @@ import Nav from './components/Nav';
 import Landing from "./components/Landing";
 import Highlights from "./components/Highlights";
 import Featured from "./components/Featured";
+import Explore from "./components/Explore";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
         <Landing></Landing>
         <Highlights></Highlights>
         <Featured></Featured>
+        <Explore></Explore>
       </div>
     </Router>
   );
