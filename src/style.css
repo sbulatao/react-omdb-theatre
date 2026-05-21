@@ -430,9 +430,9 @@ img {
 } */
 
 /* BROWSE INPUT */
-#browse__input {
-    background-color: #6030b1;
-}
+/* #browse__input { */
+    /* background-color: #6030b1; */
+/* } */
 
 .browse__input--wrapper {
     width: 70%;

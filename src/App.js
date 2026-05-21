@@ -1,22 +1,22 @@
-import { BrowserRouter as Router } from "react-router";
 import './style.css';
 import Nav from './components/Nav';
-import Landing from "./components/Landing";
-import Highlights from "./components/Highlights";
-import Featured from "./components/Featured";
-import Explore from "./components/Explore";
 import Footer from "./components/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router";
+import Home from './pages/Home';
+import Movies from './pages/Movies';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Nav></Nav>
-        <Landing></Landing>
-        <Highlights></Highlights>
-        <Featured></Featured>
-        <Explore></Explore>
-        <Footer></Footer>
+        <Nav />
+
+        <Routes>
+          <Route path='/' element={<Home />}/>
+          <Route path='/movies' element={<Movies />}/>
+        </Routes>
+
+        <Footer />
       </div>
     </Router>
   );
