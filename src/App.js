@@ -7,6 +7,7 @@ import Movies from './pages/Movies';
 import MovieInfo from './pages/MovieInfo';
 import Contact from './pages/Contact';
 import About from './pages/About';
+import Cart from './pages/Cart';
 
 function App() {
   return (
@@ -18,8 +19,9 @@ function App() {
           <Route path='/' element={<Home />}/>
           <Route path='/about' element={<About />}/>
           <Route path='/movies' element={<Movies />}/>
-          <Route path='/movies/:imbdID' element={<MovieInfo />}/>
+          <Route path='/movies/tt0110475' element={<MovieInfo />}/>
           <Route path='/contact' element={<Contact />} />
+          <Route path='/cart' element={<Cart />} />
         </Routes>
 
         <Footer />
