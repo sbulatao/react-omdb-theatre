@@ -4,6 +4,9 @@ import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import Home from './pages/Home';
 import Movies from './pages/Movies';
+import MovieInfo from './pages/MovieInfo';
+import Contact from './pages/Contact';
+import About from './pages/About';
 
 function App() {
   return (
@@ -13,7 +16,10 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Home />}/>
+          <Route path='/about' element={<About />}/>
           <Route path='/movies' element={<Movies />}/>
+          <Route path='/movies/:imbdID' element={<MovieInfo />}/>
+          <Route path='/contact' element={<Contact />} />
         </Routes>
 
         <Footer />

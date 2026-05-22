@@ -15,7 +15,7 @@ export default function Footer() {
                 </Link>
                 <div className="footer__list">
                     <Link to="/" className='footer__link'>Home</Link>
-                    <span className='footer__link no-cursor'>About</span>
+                    <Link to="/about" className='footer__link'>About</Link>
                     <Link to="/movies" className='footer__link'>Find Your Movies</Link>
                     <Link to="/login" className='footer__link'>Login</Link>
                     <Link to="/contact" className='footer__link'>Contact</Link>

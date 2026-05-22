@@ -25,6 +25,10 @@ export default function Nav() {
                     <Link to="/" className="navbar__link link__hover-effect">Home</Link>
                 </li>
 
+                <li> {/* ABOUT */}
+                    <Link to="/about" className="navbar__link link__hover-effect">About</Link>
+                </li>
+
                 <li> {/* MOVIES */}
                     <Link to="/movies" className="navbar__link link__hover-effect">Find Your Movies</Link>
                 </li>
@@ -65,6 +69,9 @@ export default function Nav() {
                 <ul className="menu__links">
                     <li className="menu__list">
                         <Link to="/" className='menu__link'>Home</Link>
+                    </li>
+                    <li className="menu__list">
+                        <Link to="/about" className='menu__link'>About</Link>
                     </li>
                     <li className="menu__list">
                         <Link to="/movies" className='menu__link'>Find Your Movies</Link>

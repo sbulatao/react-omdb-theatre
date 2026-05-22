@@ -613,6 +613,10 @@ select {
     display: flex;
 }
 
+.movie__id {
+    display: none;
+}
+
 .movie:hover .movie__poster {
     transform: scale(1.03);
 }
@@ -900,7 +904,7 @@ footer {
 
 /* @media(max-width: 768px) { */
 /* @media(max-width: 860px) { */
-@media(max-width: 1048px) {
+@media(max-width: 1160px) {
 /* index.html :: change navbar to menu */
     .navbar__links {
         display: none;
