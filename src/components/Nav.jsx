@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from 'react-router';
+// import logout from '../pages/Login';
+import { auth } from '../firebase/init';
+import { signOut } from 'firebase/auth';
 
 export default function Nav() {
+    const [user, setUser] = useState({});
+
     function openMenu() {
         document.body.classList += " menu--open";
     }
@@ -10,6 +15,12 @@ export default function Nav() {
     function closeMenu() {
         document.body.classList.remove("menu--open");
     }
+
+    function logout() {
+        signOut(auth);
+        setUser({});
+    }
+
   return (
     <nav>
         <div className="navbar">
@@ -33,11 +44,6 @@ export default function Nav() {
                     <Link to="/movies" className="navbar__link link__hover-effect">Find Your Movies</Link>
                 </li>
 
-
-                <li> {/* ADDING: LOGIN -- IN PROGRESS */}
-                    <Link to="/login" className='navbar__link'>Login</Link>
-                </li>
-
                 <li> {/* CONTACT */}
                     <Link to="/contact" className="button navbar__link--primary link__hover-effect" >Contact</Link>
                 </li>
@@ -46,6 +52,14 @@ export default function Nav() {
                     <Link to="/cart" className='navbar__link'>
                         <FontAwesomeIcon icon="shopping-cart"></FontAwesomeIcon>
                     </Link>
+                </li>
+                
+                <li> {/* ADDING: LOGIN -- IN PROGRESS */}
+                    <Link to="/login" className='navbar__link'>Login</Link>
+                </li>
+
+                <li> {/* ADDING: LOGOUT -- IN PROGRESS */}
+                    <button className='button' onClick={logout}>Logout</button>
                 </li>
 
                 {/* LIGHT/DARK CONTRAST */}
@@ -77,13 +91,16 @@ export default function Nav() {
                         <Link to="/movies" className='menu__link'>Find Your Movies</Link>
                     </li>
                     <li className="menu__list">
-                        <Link to="/login" className='menu__link'>Login</Link>
-                    </li>
-                    <li className="menu__list">
                         <Link to="/contact" className='menu__link'>Contact</Link>
                     </li>
                     <li className="menu__list">
                         <Link to="/cart" className='menu__link'>Cart</Link>
+                    </li>
+                    <li className="menu__list">
+                        <Link to="/login" className='menu__link'>Login</Link>
+                    </li>
+                    <li className="menu__list">
+                        <button className='button' onClick={logout}>Logout</button>
                     </li>
                     <li className="menu__list">
                         <Link to="/" className="navbar__link--anchor"> 
