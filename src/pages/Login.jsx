@@ -18,7 +18,7 @@ export default function Login() {
         console.log(user.email); // DEBUGGING: WILL ONLY RUN IF USER IS NOT NULL
       } 
       else { // user is signed out
-          setUser(null); // CLEAR USER STATE when database is empty...
+          setUser(null); // CLEAR USER STATE
           // logout(); // no need to use...
       //   console.log("NO USER IS LOGGED IN.");
       }
@@ -28,7 +28,6 @@ export default function Login() {
     return() => unsubscribe();
 
   }, []); // EMPTY ARRAY TO RUN ONLY ON MOUNT
-
 
   function register() {
     createUserWithEmailAndPassword(auth, email, password)
@@ -46,9 +45,10 @@ export default function Login() {
       })
   }
 
+  // LOGOUT ?? -- LOGOUT BUTTON IN NAV.JSX
 
   function login(e) {
-    e.preventDefault(); // STOP PAGE RELOAD
+    e.preventDefault(); // STOP PAGE RELOAD ---
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         const user = userCredential.user;
@@ -63,20 +63,6 @@ export default function Login() {
         console.log("FAILED -- WRONG PASSWORD!!!")
       })
   }
-
-  // function logout(){ // NOT NEEDED HERE
-  //   signOut(auth)
-  //   // setUser({});
-  //   .then(() => {
-  //     // SIGN OUT SUCCESSFUL
-  //     setUser(null); // CLEARS USER STATE
-  //     console.log("USER SIGNED OUT SUCCESSFULLY!!!");
-  //   })
-  //   .catch((error) => {
-  //     // AN ERROR HAPPENED
-  //     console.error("ERROR SIGNING OUT: ", error);
-  //   })
-  // }
 
   return (
     <section id='login'>
