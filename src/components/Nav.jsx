@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from 'react-router';
 // import logout from '../pages/Login';
-import { auth } from '../firebase/init';
+import { auth } from '../firebase/init'; 
 import { signOut } from 'firebase/auth';
 
 export default function Nav() {
-    const [user, setUser] = useState({});
 
     function openMenu() {
         document.body.classList += " menu--open";
@@ -16,9 +15,20 @@ export default function Nav() {
         document.body.classList.remove("menu--open");
     }
 
+    // NEEDS THE AUTH and signOut feature from FIREBASE
     function logout() {
-        signOut(auth);
-        setUser({});
+        signOut(auth)
+        // setUser({});
+        .then(() => {
+            console.log("USER SUCCESSFULLY LOGGED OUT");
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error("ERROR SIGNING OUT::", error)
+            console.log(errorCode);
+            console.log(errorMessage);
+        })
     }
 
   return (
