@@ -1110,7 +1110,8 @@ footer {
 
 /* @media(max-width: 768px) { */
 /* @media(max-width: 860px) { */
-@media(max-width: 1160px) {
+/* @media(max-width: 1160px) { */
+@media(max-width: 1265px) {
 /* index.html :: change navbar to menu */
     .navbar__links {
         display: none;
