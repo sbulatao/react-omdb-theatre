@@ -94,7 +94,7 @@ export default function Nav() {
                     <FontAwesomeIcon icon="times"></FontAwesomeIcon>
                 </button>
 
-                <ul className="menu__links">
+                <ul className="menu__links" onClick={closeMenu}>
                     <li className="menu__list">
                         <Link to="/" className='menu__link'>Home</Link>
                     </li>
