@@ -53,6 +53,10 @@ export default function Nav() {
                 <li> {/* MOVIES */}
                     <Link to="/movies" className="navbar__link link__hover-effect">Find Your Movies</Link>
                 </li>
+                
+                <li> {/* POSTS */}
+                    <Link to="/posts" className="navbar__link link__hover-effect">Posts</Link>
+                </li>
 
                 <li> {/* CONTACT */}
                     <Link to="/contact" className="button navbar__link--primary link__hover-effect" >Contact</Link>
@@ -99,6 +103,9 @@ export default function Nav() {
                     </li>
                     <li className="menu__list">
                         <Link to="/movies" className='menu__link'>Find Your Movies</Link>
+                    </li>
+                    <li className="menu__list">
+                        <Link to="/posts" className='menu__link'>Posts</Link>
                     </li>
                     <li className="menu__list">
                         <Link to="/contact" className='menu__link'>Contact</Link>

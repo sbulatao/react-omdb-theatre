@@ -844,6 +844,80 @@ select {
   margin: 4px;
 }
 
+/* POSTS */
+.post {
+  padding: 0 64px 0 64px;
+}
+
+.post__header {
+  font-family: sans-serif;
+}
+
+.post__subheader {
+  display: flex; 
+  flex-direction: column; 
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.post__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.post__input {
+  padding: 8px;
+}
+
+.post__textarea {
+  padding: 16px;
+}
+
+.post__publish {
+  padding: 10px;
+  background: #0070f3;
+  color: white;
+  border: none; 
+  cursor: pointer;
+}
+
+.post__buttons {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  padding: 8px;
+  gap: 10px;
+}
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.review__cards {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.review__actions {
+  margin-top: 10px;
+}
+
+/* .review__title {
+} */
+
+/* .review__para {
+} */
+
+.post__delete {
+  margin-left: 10px;
+  color: red;
+}
+
 
 /* FOOTER */
 footer {
@@ -1111,7 +1185,8 @@ footer {
 /* @media(max-width: 768px) { */
 /* @media(max-width: 860px) { */
 /* @media(max-width: 1160px) { */
-@media(max-width: 1265px) {
+/* @media(max-width: 1265px) { */
+@media(max-width: 1372px) {
 /* index.html :: change navbar to menu */
     .navbar__links {
         display: none;
