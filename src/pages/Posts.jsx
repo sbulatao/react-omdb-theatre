@@ -13,22 +13,9 @@ export default function Posts() {
     const [description, setDescription] = useState('');
     const [editingId, setEditingId] = useState(null);
 
+    const [searchId, setSearchId] = useState(''); // Specifically for GetPostById
+
     const [loading, setLoading] = useState(true);
-
-
-    // SYNC LOGGED IN USER STATE  from FIREBASE
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            console.log(currentUser);
-            setUser(currentUser);
-        });
-        return () => unsubscribe();
-    }, []);
-
-    // FETCH ALL POSTS AUTOMATICALLY
-    useEffect(() => {
-        getAllPosts();
-    }, []);
 
 
 // ------------------------- CREATE -------------------------
@@ -72,23 +59,37 @@ export default function Posts() {
             setPosts(postsData);
             
         } catch (error) {
-            console.error("Error fetching posts:", error);
+            console.error("Error fetching ALL posts:", error);
         } finally {
             setLoading(false);
         }
     }
 
     // READ A POST BY ID 
-    async function getPostById(id) {
-        setLoading(true);
+    async function getPostById(){
+        if (!searchId && !user) {
+            return alert("Please Enter an Id first!!!");
+        }
 
-        const postRef = doc(db, "posts", id);
-        const postSnap = await getDoc(postRef);
-        // console.log(postSnap.data());
+        try{
+            setLoading(true);
+            const docRef = doc(db, "posts", searchId);
+            // console.log("docRef: ", docRef);
+            const docSnap = await getDoc(docRef);
 
-        setLoading(false);
+            if(docSnap.exists()){
+                const post = docSnap.data();
+                setPosts([post])
+            } else {
+                alert("No post found with matching ID!");
+                setPosts([]); // CLEARS LIST if nothing found
+            }
 
-        return postSnap.data();
+        } catch (error){
+            console.error("Error fetching post by ID: ", error);
+        } finally {
+            setLoading(false);
+        }
     }
 
     // READ A POST BY UID
@@ -111,8 +112,9 @@ export default function Posts() {
                 ...doc.data(),
                 id: doc.id
             })));
+
         } catch (error) {
-            console.error(error);
+            console.error("Error fetching post by UID: ", error);
         } finally {
             setLoading(false);
         }
@@ -153,12 +155,27 @@ export default function Posts() {
     async function deletePost(id){
         const postRef = doc(db, "posts", id);
 
-        await deleteDoc(postRef);
+        // await deleteDoc(postRef);
+        deleteDoc(postRef);
 
         // REFRESH LIST AFTER DELETEING
         getAllPosts(); 
     };
 
+
+// SYNC LOGGED IN USER STATE from FIREBASE
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            console.log(currentUser);
+            setUser(currentUser);
+        });
+        return () => unsubscribe();
+    }, []);
+
+    // FETCH ALL POSTS AUTOMATICALLY
+    useEffect(() => {
+        getAllPosts();
+    }, []);
 
   return (
     <div className='container'>
@@ -196,13 +213,24 @@ export default function Posts() {
                     setEditingId(null);
                     setTitle('');
                     setDescription('');
-                }}>Cancel Edit</button>
+                }}>{editingId ? 'Cancel Edit' : 'Cancel'}</button>
             </form>
+
+            <div className="post__button--id">
+            <h3>Find post by id: </h3>
+                <input
+                    className='post__input--id'
+                    type='text'
+                    placeholder='Unique post id'
+                    value={searchId}
+                    onChange={(e) => setSearchId(e.target.value)}
+                />
+                <button type='submit' onClick={getPostById}>Get Post By Id</button>
+            </div>
 
             <div className="post__buttons">
                 <button onClick={getAllPosts}>Get All Posts</button>
-                <button onClick={getPostById}>Get Post By Id</button>
-                <button onClick={getPostByUid}>Get Post By Uid</button>
+                <button onClick={getPostByUid}>Get Post By Me</button>
             </div>
 
             <h2 className='all__reviews'>All Reviews</h2>
@@ -224,7 +252,7 @@ export default function Posts() {
                             {user && user.uid === post.uid && (
                                 <div className='review__actions'>
                                     <button onClick={() => {startEdit(post)}}>Edit</button>
-                                    <button className='post__delete' onChange={() => {deletePost(post.id)}}>Delete</button>
+                                    <button className='post__delete' onClick={() => {deletePost(post.id)}}>Delete</button>
                                 </div>
                             )}
                         </div>

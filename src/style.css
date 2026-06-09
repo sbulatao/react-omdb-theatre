@@ -883,6 +883,18 @@ select {
   cursor: pointer;
 }
 
+.post__button--id {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding: 8px;
+  gap: 10px;
+}
+
+.post__input--id {
+  padding: 4px;
+}
+
 .post__buttons {
   display: flex;
   flex-direction: row;
@@ -893,7 +905,7 @@ select {
 
 .reviews {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   gap: 15px;
 }
 
