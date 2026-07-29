@@ -10,12 +10,40 @@ import About from './pages/About';
 import Cart from './pages/Cart';
 import Login from './pages/Login';
 import Posts from './pages/Posts';
+import { useState, useEffect } from 'react';
 
 function App() {
+  
+  // dark theme
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    
+    // check localStorage when app loads for theme
+    if (savedTheme === "dark"){
+      setIsDarkTheme(true);
+      document.body.classList.add("dark-theme")
+    }
+  }, [])
+
+  // toggle theme light/dark
+  const toggleTheme = () => {
+    if (!isDarkTheme) {
+      document.body.classList.add("dark-theme");
+      localStorage.setItem("theme", "dark");
+      setIsDarkTheme(true);
+    } else {
+      document.body.classList.remove("dark-theme");
+      localStorage.setItem("theme", "light");
+      setIsDarkTheme(false);
+    }
+  };
+
   return (
     <Router>
       <div className="App">
-        <Nav />
+        <Nav toggleTheme={toggleTheme}/>
 
         <Routes>
           <Route path='/' element={<Home />}/>

@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Movie from '../components/ui/Movie'
 import Browse from '../components/Browse'
 
+const apiKey = "e687b801";
+
 export default function Movies() {
+
+    // const [movies, setMovies] = useState([]);
+    // const [selectedMovie, setSelectedMovie] = useState([]);
+    // const [searchTerm, setSearchTerm] = useState(null);
+    // const [movies__loading, setLoading] = useState(false);
+    // const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+    useEffect(() => {
+        // const savedTheme = localStorage.getItem("theme");
+
+        // if (savedTheme === "dark") {
+        //     setIsDarkTheme(true);
+        //     document.body.classList.add("dark-theme");
+        // }
+    }, []);
+
   return (
     <>
     <main>

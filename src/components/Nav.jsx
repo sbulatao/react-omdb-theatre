@@ -5,10 +5,11 @@ import { Link } from 'react-router';
 import { auth } from '../firebase/init'; 
 import { signOut } from 'firebase/auth';
 
-export default function Nav() {
+export default function Nav( {toggleTheme} ) {
 
     function openMenu() {
-        document.body.classList += " menu--open";
+        // document.body.classList += " menu--open";
+        document.body.classList.add("menu--open");
     }
 
     function closeMenu() {
@@ -23,11 +24,11 @@ export default function Nav() {
             console.log("USER SUCCESSFULLY LOGGED OUT");
         })
         .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
+            // const errorCode = error.code;
+            // const errorMessage = error.message;
             console.error("ERROR SIGNING OUT::", error)
-            console.log(errorCode);
-            console.log(errorMessage);
+            // console.log(errorCode);
+            // console.log(errorMessage);
         })
     }
 
@@ -78,9 +79,9 @@ export default function Nav() {
 
                 {/* LIGHT/DARK CONTRAST */}
                 <li className="navbar__link click link__hover-effect">
-                    <Link to="/" className="navbar__link--anchor"> 
+                    <button className="navbar__link--anchor" onClick={toggleTheme}> 
                         <FontAwesomeIcon icon="adjust"></FontAwesomeIcon>
-                    </Link>
+                    </button>
                 </li>
             </ul>
 
@@ -120,9 +121,9 @@ export default function Nav() {
                         <button className='button' onClick={logout}>Logout</button>
                     </li>
                     <li className="menu__list">
-                        <Link to="/" className="navbar__link--anchor"> 
+                        <button className="navbar__link--anchor" onClick={toggleTheme}> 
                             <FontAwesomeIcon icon="adjust"></FontAwesomeIcon>
-                        </Link>
+                        </button>
                     </li>
                 </ul>
             </div>
