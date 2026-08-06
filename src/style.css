@@ -440,9 +440,9 @@ img {
 }
 
 /* NO CURSOR */
-.no-cursor {
+/* .no-cursor {
   cursor: not-allowed;
-}
+} */
 
 /* HIGHLIGHTS */
 #highlights {
@@ -628,12 +628,12 @@ select {
 
 .movie__title:hover {
     text-decoration: underline;
-    cursor: not-allowed;
+    /* cursor: not-allowed; */
 }
 
 .movie__year:hover {
     text-decoration: underline;
-    cursor: not-allowed;
+    /* cursor: not-allowed; */
 }
 
 /* EXPLORE */
@@ -958,7 +958,6 @@ footer {
 .footer__link {
   padding: 0 8px;
 }
-
 
 /* MODAL MOVIE */
 .modal__movie {

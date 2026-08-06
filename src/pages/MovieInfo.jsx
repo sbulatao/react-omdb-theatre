@@ -1,57 +1,99 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router'; // or 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
+import { apiKey } from '../apikey/init'; // need apiKey from omdbId
 
 export default function MovieInfo() {
+    
+  const { id } = useParams();
+  const [movie, setMovie] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // get movie data with omdbId and apiKey
+    async function getMovieData() {
+        setLoading(true);
+        try {
+            const { data } = await axios.get(`https://www.omdbapi.com/?i=${id}&apikey=${apiKey}`);
+            setMovie(data);
+            console.log(data);
+        } catch (error) {
+            console.error("Error fetching deep data details on page:", error);
+        } finally {
+            setLoading(false);
+        }
+    }
+    getMovieData();
+  }, [id]);
+
+  // if loading -- spinner
+  if (loading) {
+    return (
+        <div className="container">
+            <FontAwesomeIcon icon="spinner" className="spinner" spin size="3x" />
+        </div>
+    );
+  }
+
+  // if no movie
+  if (!movie || movie.Response === "False") {
+    return (
+      <div className="container">
+            <h2>Movie Not Found!</h2>
+            <Link to="/movies" className="button">Back to Search</Link>
+      </div>
+    );
+  }
+
+  // if poster does not equal to N/A, then put movie poster else use the placeholder
+  const poster = movie.Poster !== "N/A" ? movie.Poster : "https://placeholder.com";
+
   return (
     <div className="container">
         <div className="movie__row">
             <div className="book__selected--top">
                 <Link to="/movies" className="movie__link">
-                    <FontAwesomeIcon icon="arrow-left"/>
-                </Link>
-
-                <Link to="/movies" className="movie__link">
-                    <h2 className="book__selected--title--top">Movies</h2>
+                    <FontAwesomeIcon icon="arrow-left"/> Back to Movies
                 </Link>
             </div>
 
             <div className="row">
-            <div className="modal__movie--content">
-                {/* <FontAwesomeIcon icon="times" className='modal_exit click'></FontAwesomeIcon>  */}
-                {/* onclick="closeMovieModal() */}
-
-                <div className="modal__poster__left">
-                    <img src="https://m.media-amazon.com/images/M/MV5BNGNmNjI0ZmMtMzI5MC00ZjUyLWFlZDEtYjUyMGZlN2E3N2E2XkEyXkFqcGc@._V1_SX300.jpg" alt="" className="movie__poster" />
-                </div>
-                
-                <div className="modal__description">
-                    <h3 className="modal__title">
-                        The Mask
-                    </h3>
-                    <span className='modal__rating'>7.5 STARS</span> {/* ADDED RATING */}
-
-                    <div className="modal__meta">
-                        <span className="modal__year">1994</span> | 
-                        <span className="modal__rated">PG-13</span> | 
-                        <span className="modal__release">29 JUL 1994</span> |
-                        <span className="modal__runtime">101 mins</span>
+                <div className="modal__movie--content">
+                    <div className="modal__poster__left">
+                        <img src={poster} alt={movie.Title} className="movie__poster" />
                     </div>
 
-                    <h4 className="modal__genre">Comedy, Crime, Fantasy</h4>
-                    <p className="modal__plot">Bank clerk Stanley Ipkiss is transformed into a manic superhero when he wears a mysterious mask.</p>
+                    <div className="modal__description">
+                        <h3 className="modal__title">{movie.Title}</h3>
+                        
+                        <div className="movie__ratings">
+                            <FontAwesomeIcon icon="star" />
+                            <span className='modal__rating'> {movie.imdbRating} / 10</span>
+                        </div>
 
-                    <div className="modal__cast">
-                        <h4 className="modal__directors">Chuck Russell</h4>
-                        <h4 className="modal__writers">Michael Fallon, Mark Verheiden, Mike Werb</h4>
-                        <h4 className="modal__actors">Jim Carrey, Cameron Diaz, Peter Riegert</h4>
+                        <div className="modal__meta">
+                            <span className="modal__year">{movie.Year}</span> | 
+                            <span className="modal__rated">{movie.Rated}</span> | 
+                            <span className="modal__release">{movie.Released}</span> | 
+                            <span className="modal__runtime">{movie.Runtime}</span>
+                        </div>
+
+                        <h4 className="modal__genre">{movie.Genre}</h4>
+                        <p className="modal__plot">{movie.Plot}</p>
+
+                        <div className="modal__cast">
+                            <h4 className="modal__directors"><strong>Director:</strong> {movie.Director}</h4>
+                            <h4 className="modal__writers"><strong>Writers:</strong> {movie.Writer}</h4>
+                            <h4 className="modal__actors"><strong>Actors:</strong> {movie.Actors}</h4>
+                            <h4 className="modal__boxoffice"><strong>Box Office:</strong> {movie.BoxOffice !== "N/A" ? movie.BoxOffice : "N/A"}</h4>
+                        </div>
+                        
+                        <button className='button'>Add to Cart</button>
                     </div>
-
-                    <button className='button'>Add to Cart</button>
                 </div>
-            </div>
             </div>
         </div>
     </div>
-  )
+  );
 }
