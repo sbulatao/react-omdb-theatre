@@ -24,3 +24,5 @@ yarn-error.log*
 
 # src/firebase/init.js
 # src/apikey/init.js
+.vercel
+.env*
