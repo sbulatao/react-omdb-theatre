@@ -263,8 +263,9 @@ img {
     transition: 0.4s;
 }
 
-.menu__open {
+.menu--open {
     max-height: 100vh;
+    overflow-x: hidden;
     overflow-y: hidden;
 }
 
