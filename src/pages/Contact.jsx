@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <div className='container'>
         <div className="row">
-            <FontAwesomeIcon icon='times' className='modal__exit click'></FontAwesomeIcon>
+            {/* <FontAwesomeIcon icon='times' className='modal__exit click'></FontAwesomeIcon> */}
             {/* onclick="toggleModal() */}
             <h3 className="modal__title modal__title--contact">
             See any problems and would like us to fix it?

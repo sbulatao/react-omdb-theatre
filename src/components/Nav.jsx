@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from 'react-router';
 // import logout from '../pages/Login';
 import { auth } from '../firebase/init'; 
-import { signOut } from 'firebase/auth';
+import { signOut, onAuthStateChanged } from 'firebase/auth';
 
 export default function Nav( {toggleTheme} ) {
+    // user state for login/logout
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (firebaseUser) => {
+            setUser(firebaseUser);
+        });
+    }, []);
 
     function openMenu() {
         // document.body.classList += " menu--open";
@@ -69,13 +77,17 @@ export default function Nav( {toggleTheme} ) {
                     </Link>
                 </li>
                 
-                <li> {/* ADDING: LOGIN -- IN PROGRESS */}
+                {!user && (
+                    <li> {/* ADDING: LOGIN -- IN PROGRESS */}
                     <Link to="/login" className='navbar__link'>Login</Link>
                 </li>
+                )}
 
-                <li> {/* ADDING: LOGOUT -- IN PROGRESS */}
-                    <button className='button' onClick={logout}>Logout</button>
-                </li>
+                {user && (
+                    <li> {/* ADDING: LOGOUT -- IN PROGRESS */}
+                        <button className='button' onClick={logout}>Logout</button>
+                    </li>
+                )}
 
                 {/* LIGHT/DARK CONTRAST */}
                 <li className="navbar__link click link__hover-effect">
@@ -114,12 +126,19 @@ export default function Nav( {toggleTheme} ) {
                     <li className="menu__list">
                         <Link to="/cart" className='menu__link'>Cart</Link>
                     </li>
-                    <li className="menu__list">
-                        <Link to="/login" className='menu__link'>Login</Link>
-                    </li>
-                    <li className="menu__list">
-                        <button className='button' onClick={logout}>Logout</button>
-                    </li>
+
+                    {!user && (
+                        <li className="menu__list">
+                            <Link to="/login" className='menu__link'>Login</Link>
+                        </li>
+                    )}
+
+                    {user && (
+                        <li className="menu__list">
+                            <button className='button' onClick={logout}>Logout</button>
+                        </li>
+                    )}
+
                     <li className="menu__list">
                         <button className="navbar__link--anchor" onClick={toggleTheme}> 
                             <FontAwesomeIcon icon="adjust"></FontAwesomeIcon>

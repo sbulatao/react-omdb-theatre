@@ -127,12 +127,20 @@ img {
     color:#af81ff
 }
 
+.dark-theme h2,
+.dark-theme .row,
+/* .dark-theme .highlight__wrapper,
 .dark-theme .title__subtitle,
 .dark-theme .navbar__link,
 .dark-theme .navbar__link--anchor,
 .dark-theme .fa-adjust,
+.dark-theme .modal__description,
+.dark-theme .modal__about, */
 .dark-theme .movie__title,
-.dark-theme .movie__year{
+.dark-theme .movie__year,
+.dark-theme .post,
+.dark-theme .movie__row
+{
   color: white;
 }
 
