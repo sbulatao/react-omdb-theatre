@@ -148,6 +148,24 @@ img {
   border-color: white;
 }
 
+.cart__length {
+  background-color: red;
+  color: white;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 64px;
+  /* bottom: -4px; */
+  /* right: -12px; */
+  right: 30px;
+  pointer-events: none;
+}
+
 /* NAVBAR */
 .navbar {
     display: flex;
@@ -237,6 +255,10 @@ img {
 }
 
 /* MENU */
+.menu__wrapper{
+  display: flex;
+}
+
 .button__menu {
     background-color: transparent;
     border: none;

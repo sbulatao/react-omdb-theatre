@@ -70,11 +70,12 @@ export default function Nav( {toggleTheme} ) {
                 <li> {/* CONTACT */}
                     <Link to="/contact" className="button navbar__link--primary link__hover-effect" >Contact</Link>
                 </li>
-                
+
                 <li> {/* ADDING: CART -- IN PROGRESS */}
-                    <Link to="/cart" className='navbar__link'>
+                    {/* <Link to="/cart" className='navbar__link'>
                         <FontAwesomeIcon icon="shopping-cart"></FontAwesomeIcon>
-                    </Link>
+                        <span className='cart__length'>2</span>
+                    </Link> */}
                 </li>
                 
                 {!user && (
@@ -98,10 +99,21 @@ export default function Nav( {toggleTheme} ) {
             </ul>
 
             {/* <!-- menu button --> */}
-            <button className="button__menu" onClick={openMenu}>
-                <FontAwesomeIcon icon="bars" size='xl'></FontAwesomeIcon>
-            </button>
+            <ul className="menu__wrapper">
+                <li>
+                    <button className="button__menu" onClick={openMenu}>
+                        <FontAwesomeIcon icon="bars" size='xl'></FontAwesomeIcon>
+                    </button>
+                </li>
+                <li> {/* ADDING: CART -- IN PROGRESS */}
+                    <Link to="/cart" className='menu__list'>
+                        <FontAwesomeIcon icon="shopping-cart"></FontAwesomeIcon>
+                        <span className='cart__length'>2</span>
+                    </Link>
+                </li>
+            </ul>
 
+        
             <div className="menu">
                 <button className="button__menu menu__close" onClick={closeMenu}>
                     <FontAwesomeIcon icon="times"></FontAwesomeIcon>
@@ -123,16 +135,12 @@ export default function Nav( {toggleTheme} ) {
                     <li className="menu__list">
                         <Link to="/contact" className='menu__link'>Contact</Link>
                     </li>
-                    <li className="menu__list">
-                        <Link to="/cart" className='menu__link'>Cart</Link>
-                    </li>
 
                     {!user && (
                         <li className="menu__list">
                             <Link to="/login" className='menu__link'>Login</Link>
                         </li>
                     )}
-
                     {user && (
                         <li className="menu__list">
                             <button className='button' onClick={logout}>Logout</button>
@@ -146,8 +154,8 @@ export default function Nav( {toggleTheme} ) {
                     </li>
                 </ul>
             </div>
-
         </div>
+
     </nav>
   )
 }
