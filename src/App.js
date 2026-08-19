@@ -46,12 +46,11 @@ function App() {
     if (dupeItem) { // update quantity here
       // dupeItem.quantity += 1;
       setCart(cart.map(item => 
-        item.imdbID === movie.imdbID ? { ...item, quantity: item.quantity + 1 } : item
+        item.imdbID === dupeItem.imdbID ? { ...item, quantity: item.quantity + 1 } : item
       ));
     } else { // add new item
       setCart([...cart, { ...movie, quantity: 1 }]);
     }
-    console.log(dupeItem);
   }
 
   useEffect(() => {
