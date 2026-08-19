@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import { apiKey } from '../apikey/init'; // need apiKey from omdbId
 
-export default function MovieInfo() {
+export default function MovieInfo({ addToCart }) {
     
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
@@ -89,7 +89,8 @@ export default function MovieInfo() {
                             <h4 className="modal__boxoffice"><strong>Box Office:</strong> {movie.BoxOffice !== "N/A" ? movie.BoxOffice : "N/A"}</h4>
                         </div>
                         
-                        <button className='button'>Add to Cart</button>
+                        {/* <button className='button'>Add to Cart</button> */}
+                        <button className='button' onClick={() => addToCart(movie)}>Add to Cart</button>
                     </div>
                 </div>
             </div>

@@ -14,8 +14,8 @@ import { useState, useEffect } from 'react';
 
 function App() {
   
-  // dark theme
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(false); // dark theme
+  const [cart, setCart] = useState([]); // cart
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -40,6 +40,24 @@ function App() {
     }
   };
 
+  function addToCart(movie){
+    const dupeItem = cart.find(item => item.imdbID === movie.imdbID);
+
+    if (dupeItem) { // update quantity here
+      // dupeItem.quantity += 1;
+      setCart(cart.map(item => 
+        item.imdbID === movie.imdbID ? { ...item, quantity: item.quantity + 1 } : item
+      ));
+    } else { // add new item
+      setCart([...cart, { ...movie, quantity: 1 }]);
+    }
+    console.log(dupeItem);
+  }
+
+  useEffect(() => {
+    console.log(cart);
+  },[cart])
+
   return (
     <Router>
       <div className="App">
@@ -49,7 +67,7 @@ function App() {
           <Route path='/' element={<Home />}/>
           <Route path='/about' element={<About />}/>
           <Route path='/movies' element={<Movies />}/>
-          <Route path='/movies/:id' element={<MovieInfo />}/>
+          <Route path='/movies/:id' element={<MovieInfo addToCart={addToCart} />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/login' element={<Login />} />
