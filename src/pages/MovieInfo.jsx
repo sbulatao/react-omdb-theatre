@@ -97,7 +97,9 @@ export default function MovieInfo({ addToCart, cart }) {
                             
                             {/* <button className='button'>Add to Cart</button> */}
                             { added ? (
-                                <button className='button'>Checkout</button>
+                                <Link to={'/cart'} className="movie__link">
+                                    <button className='button'>Checkout</button>
+                                </Link>
                             ) : (
                                 <button className='button' onClick={() => addMovieToCart(movie)}>Add to Cart</button>
                             )}
