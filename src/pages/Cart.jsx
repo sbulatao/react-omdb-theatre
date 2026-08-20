@@ -81,7 +81,7 @@ export default function Cart({ cart, changeQuantity, removeItem }) {
                             </div>
                             <div className="total__item total__price">
                                 <span>Total</span>
-                                <span>${(total)}</span>
+                                <span>${(total || "0").toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
                             </div>
 
                             <button className="button button__checkout no-cursor"
