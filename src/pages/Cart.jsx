@@ -6,10 +6,10 @@ export default function Cart({ cart, changeQuantity }) {
     useEffect(() => {
         let price = 0;
         cart.forEach(item => {
-            price += (Number(item.BoxOffice.replace(/[$,]/g, "")) * (item.quantity));
+            price += +(Number(item.BoxOffice.replace(/[$,]/g, "")) * (item.quantity));
         });
-
-        setTotal(price.toLocaleString());
+        
+        setTotal(price);
     }, [cart])
     
   return (
@@ -52,7 +52,7 @@ export default function Cart({ cart, changeQuantity }) {
                                             />
                                         </div>
                                         {/* replace $ and , to empty so that it can multiply with the quantity */}
-                                        <div className="cart__total">${ (Number(movie.BoxOffice.replace(/[$,]/g, "")) * (movie.quantity)).toLocaleString() }</div>
+                                        <div className="cart__total">${ (Number(movie.BoxOffice.replace(/[$,]/g, "")) * (movie.quantity)).toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2}) }</div>
                                     </div>
                                     )
                                 })
@@ -62,15 +62,17 @@ export default function Cart({ cart, changeQuantity }) {
                         <div className="total">
                             <div className="total__item total__sub-total">
                                 <span>Subtotal</span>
-                                <span>$9.00</span>
+                                <span>${(total * 0.9).toLocaleString("en-US", {
+                                    minimumFractionDigits: 2, maximumFractionDigits: 2
+                                })}</span>
                             </div>
                             <div className="total__item total__tax">
                                 <span>Tax</span>
-                                <span>$1.00</span>
+                                <span>${(total * 0.1).toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
                             </div>
                             <div className="total__item total__price">
                                 <span>Total</span>
-                                <span>${total}</span>
+                                <span>${total.toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
                             </div>
 
                             <button className="button button__checkout no-cursor"
