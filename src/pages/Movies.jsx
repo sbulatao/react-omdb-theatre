@@ -21,6 +21,13 @@ export default function Movies() {
         }
     }, []);
 
+    // updates the movie search ahhhhh finally...
+    useEffect(() => {
+        if(searchTerm.trim()){
+            localStorage.setItem("Title", searchTerm);
+        }
+    }, [searchTerm]);
+
     // update input, searching
     const onSearchChange = (event) => {
         const title = event.target.value.trim();
