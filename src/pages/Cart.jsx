@@ -9,7 +9,7 @@ export default function Cart({ cart, changeQuantity, removeItem }) {
     useEffect(() => {
         let price = 0;
         cart.forEach(item => {
-            price += (Number((item.BoxOffice || "0").replace(/[$,]/g, "")) * (item.quantity));
+            price += (Number((item.BoxOffice === "N/A" ? "0" : item.BoxOffice || "0").replace(/[$,]/g, "")) * (item.quantity));
         });
         
         setTotal(price);
@@ -55,7 +55,7 @@ export default function Cart({ cart, changeQuantity, removeItem }) {
                                             />
                                         </div>
                                         {/* replace $ and , to empty so that it can multiply with the quantity */}
-                                        <div className="cart__total">${ (Number((movie.BoxOffice || "0").replace(/[$,]/g, "")) * (movie.quantity)).toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2}) }</div>
+                                        <div className="cart__total">${ (Number((movie.BoxOffice === "N/A" ? "0" : movie.BoxOffice || "0").replace(/[$,]/g, "")) * (movie.quantity)).toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2}) }</div>
                                     </div>
                                     )
                                 })
