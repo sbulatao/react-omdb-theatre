@@ -9,7 +9,7 @@ export default function Cart({ cart, changeQuantity, removeItem }) {
     useEffect(() => {
         let price = 0;
         cart.forEach(item => {
-            price += (Number(item.BoxOffice.replace(/[$,]/g, "")) * (item.quantity));
+            price += (Number((item.BoxOffice || "0").replace(/[$,]/g, "")) * (item.quantity));
         });
         
         setTotal(price);
