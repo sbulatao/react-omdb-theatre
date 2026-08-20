@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import EmptyCart from "../assets/undraw_horror-movie_9020.svg"
+import { Link } from 'react-router-dom';
+
 
 export default function Cart({ cart, changeQuantity, removeItem }) {
     const [total, setTotal] = useState();
@@ -52,14 +55,22 @@ export default function Cart({ cart, changeQuantity, removeItem }) {
                                             />
                                         </div>
                                         {/* replace $ and , to empty so that it can multiply with the quantity */}
-                                        <div className="cart__total">${ (Number(movie.BoxOffice.replace(/[$,]/g, "")) * (movie.quantity)).toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2}) }</div>
+                                        <div className="cart__total">${ (Number((movie.BoxOffice || "0").replace(/[$,]/g, "")) * (movie.quantity)).toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2}) }</div>
                                     </div>
                                     )
                                 })
                             }
                         </div>
 
-                        <div className="total">
+                        { !cart.length && <div className="cart__empty">
+                            <img src={EmptyCart} alt="" className="cart__empty--img" />
+                            <h2>You don't have any movies in your cart!</h2>
+                            <Link to="/movies">
+                                <button className='button'>Browse Movies</button>
+                            </Link>
+                        </div> }
+
+                        { cart.length && <div className="total">
                             <div className="total__item total__sub-total">
                                 <span>Subtotal</span>
                                 <span>${(total * 0.9).toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
@@ -71,15 +82,13 @@ export default function Cart({ cart, changeQuantity, removeItem }) {
                             <div className="total__item total__price">
                                 <span>Total</span>
                                 <span>${(total)}</span>
-                                {/* <span>${(total.toFixed(2))}</span> */}
-                                {/* <span>${(total).toLocaleString("en-US", {minimumFractionDigits:2, maximumFractionDigits: 2})}</span> */}
                             </div>
 
                             <button className="button button__checkout no-cursor"
                             onClick={() => alert(`Not yet implemented :(`)}>
                                 Proceed to Checkout
                             </button>
-                        </div>
+                        </div> }
 
                     </div>
                 </div>
