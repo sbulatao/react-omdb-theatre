@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Cart() {
+export default function Cart({ cart, changeQuantity }) {
   return (
     <div id="movie__body">
         <main className="movie__main">
@@ -19,22 +19,32 @@ export default function Cart() {
                         </div>
 
                         <div className="cart__body">
-                            <div className="cart__item">
-                                <div className="cart__movie">
-                                    <img src="https://m.media-amazon.com/images/M/MV5BNGNmNjI0ZmMtMzI5MC00ZjUyLWFlZDEtYjUyMGZlN2E3N2E2XkEyXkFqcGc@._V1_SX300.jpg" 
-                                    className='cart__movie--img' 
-                                    alt="" />
-                                    <div className="cart__movie--info">
-                                        <span className="cart__movie--title">The Mask</span>
-                                        <span className="cart__movie--price">$10.000</span>
-                                        <button className="cart__movie--remove">Remove</button>
+                            {
+                                cart.map(movie => {
+                                    return (
+                                    <div className="cart__item" key={movie.imdbID}>
+                                        <div className="cart__movie">
+                                            <img src={movie.Poster} 
+                                            className='cart__movie--img' 
+                                            alt="" />
+                                            <div className="cart__movie--info">
+                                                <span className="cart__movie--title">{movie.Title}</span>
+                                                <span className="cart__movie--price">{movie.BoxOffice}</span>
+                                                <button className="cart__movie--remove">Remove</button>
+                                            </div>
+                                        </div>
+                                        <div className="cart__quantity">
+                                            <input 
+                                            type="number" min={0} max={99} className='cart__input'
+                                            value={movie.quantity}
+                                            onChange={(e) => changeQuantity(movie, e.target.value)}
+                                            />
+                                        </div>
+                                        <div className="cart__total">$10.00</div>
                                     </div>
-                                </div>
-                                <div className="cart__quantity">
-                                    <input type="number" min={0} max={99} className='cart__input'/>
-                                </div>
-                                <div className="cart__total">$10.00</div>
-                            </div>
+                                    )
+                                })
+                            }
                         </div>
 
                         <div className="total">

@@ -39,7 +39,8 @@ function App() {
       setIsDarkTheme(false);
     }
   };
-
+  
+  // adds movie to cart
   function addToCart(movie){
     const dupeItem = cart.find(item => item.imdbID === movie.imdbID);
 
@@ -51,6 +52,13 @@ function App() {
     } else { // add new item
       setCart([...cart, { ...movie, quantity: 1 }]);
     }
+  }
+
+  // changes quantity
+  function changeQuantity(movie, quantity){
+    setCart(cart.map(item => 
+      item.imdbID === movie.imdbID ? { ...item, quantity: +quantity } : item
+    ));
   }
 
   useEffect(() => {
@@ -68,7 +76,7 @@ function App() {
           <Route path='/movies' element={<Movies />}/>
           <Route path='/movies/:id' element={<MovieInfo addToCart={addToCart} />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/cart' element={<Cart />} />
+          <Route path='/cart' element={<Cart cart={cart} changeQuantity={changeQuantity} />} />
           <Route path='/login' element={<Login />} />
           <Route path='/posts' element={<Posts /> } />
         </Routes>
