@@ -66,6 +66,14 @@ function App() {
     setCart(cart.filter(movie => movie.imdbID !== item.imdbID));
   }
 
+  function numberOfItems(){
+    let counter = 0;
+    cart.forEach(item => {
+      counter += item.quantity
+    })
+    return counter;
+  }
+
   useEffect(() => {
     console.log(cart);
   },[cart])
@@ -73,7 +81,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Nav toggleTheme={toggleTheme}/>
+        <Nav toggleTheme={toggleTheme} numberOfItems={numberOfItems()}/>
 
         <Routes>
           <Route path='/' element={<Home />}/>

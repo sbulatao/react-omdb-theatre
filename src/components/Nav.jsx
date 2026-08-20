@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import { auth } from '../firebase/init'; 
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 
-export default function Nav( {toggleTheme} ) {
+export default function Nav( {toggleTheme, numberOfItems} ) {
     // user state for login/logout
     const [user, setUser] = useState(null);
 
@@ -108,8 +108,10 @@ export default function Nav( {toggleTheme} ) {
                 <li> {/* ADDING: CART -- IN PROGRESS */}
                     <Link to="/cart" className='menu__list'>
                         <FontAwesomeIcon icon="shopping-cart"></FontAwesomeIcon>
-                        <span className='cart__length'>2</span>
                     </Link>
+                    {
+                        numberOfItems > 0 && <span className='cart__length'>{numberOfItems}</span>
+                    }
                 </li>
             </ul>
 
