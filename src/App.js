@@ -61,6 +61,11 @@ function App() {
     ));
   }
 
+  // removes item from cart
+  function removeItem(item){
+    setCart(cart.filter(movie => movie.imdbID !== item.imdbID));
+  }
+
   useEffect(() => {
     console.log(cart);
   },[cart])
@@ -76,7 +81,7 @@ function App() {
           <Route path='/movies' element={<Movies />}/>
           <Route path='/movies/:id' element={<MovieInfo addToCart={addToCart} />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/cart' element={<Cart cart={cart} changeQuantity={changeQuantity} />} />
+          <Route path='/cart' element={<Cart cart={cart} changeQuantity={changeQuantity} removeItem={removeItem} />} />
           <Route path='/login' element={<Login />} />
           <Route path='/posts' element={<Posts /> } />
         </Routes>

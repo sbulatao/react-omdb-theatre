@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 
-export default function Cart({ cart, changeQuantity }) {
+export default function Cart({ cart, changeQuantity, removeItem }) {
     const [total, setTotal] = useState();
 
     useEffect(() => {
         let price = 0;
         cart.forEach(item => {
-            price += +(Number(item.BoxOffice.replace(/[$,]/g, "")) * (item.quantity));
+            price += (Number(item.BoxOffice.replace(/[$,]/g, "")) * (item.quantity));
         });
         
         setTotal(price);
@@ -41,7 +41,7 @@ export default function Cart({ cart, changeQuantity }) {
                                             <div className="cart__movie--info">
                                                 <span className="cart__movie--title">{movie.Title}</span>
                                                 <span className="cart__movie--price">{movie.BoxOffice}</span>
-                                                <button className="cart__movie--remove">Remove</button>
+                                                <button className="cart__movie--remove" onClick={() => removeItem(movie)}>Remove</button>
                                             </div>
                                         </div>
                                         <div className="cart__quantity">
@@ -62,9 +62,7 @@ export default function Cart({ cart, changeQuantity }) {
                         <div className="total">
                             <div className="total__item total__sub-total">
                                 <span>Subtotal</span>
-                                <span>${(total * 0.9).toLocaleString("en-US", {
-                                    minimumFractionDigits: 2, maximumFractionDigits: 2
-                                })}</span>
+                                <span>${(total * 0.9).toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
                             </div>
                             <div className="total__item total__tax">
                                 <span>Tax</span>
@@ -72,7 +70,9 @@ export default function Cart({ cart, changeQuantity }) {
                             </div>
                             <div className="total__item total__price">
                                 <span>Total</span>
-                                <span>${total.toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+                                <span>${(total)}</span>
+                                {/* <span>${(total.toFixed(2))}</span> */}
+                                {/* <span>${(total).toLocaleString("en-US", {minimumFractionDigits:2, maximumFractionDigits: 2})}</span> */}
                             </div>
 
                             <button className="button button__checkout no-cursor"
