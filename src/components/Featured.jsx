@@ -19,7 +19,7 @@ export default function Featured() {
                     <div className="movie">
                         <a href='/'>
                             <figure className='movie__poster--wrapper'>
-                                <img src="https://m.media-amazon.com/images/M/MV5BNGNmNjI0ZmMtMzI5MC00ZjUyLWFlZDEtYjUyMGZlN2E3N2E2XkEyXkFqcGc@._V1_SX300.jpg" alt=""/>
+                                <img src="https://m.media-amazon.com/images/M/MV5BNGNmNjI0ZmMtMzI5MC00ZjUyLWFlZDEtYjUyMGZlN2E3N2E2XkEyXkFqcGc@._V1_SX300.jpg" alt="" className="movie__poster"/>
                             </figure>
                         </a>
                         <div className="movie__title">
@@ -45,7 +45,7 @@ export default function Featured() {
                     <div className="movie">
                         <a href='/'>
                             <figure className='movie__poster--wrapper'>
-                                <img src="https://m.media-amazon.com/images/M/MV5BMTI5MDU3MTYyMF5BMl5BanBnXkFtZTYwODgyODc3._V1_SX300.jpg" alt=""/>
+                                <img src="https://m.media-amazon.com/images/M/MV5BMTI5MDU3MTYyMF5BMl5BanBnXkFtZTYwODgyODc3._V1_SX300.jpg" alt="" className="movie__poster"/>
                             </figure>
                         </a>
                         <div className="movie__title">
@@ -68,7 +68,7 @@ export default function Featured() {
                     <div className="movie">
                         <a href='/'>
                             <figure className='movie__poster--wrapper'>
-                                <img src="https://m.media-amazon.com/images/M/MV5BYzYyN2FiZmUtYWYzMy00MzViLWJkZTMtOGY1ZjgzNWMwN2YxXkEyXkFqcGc@._V1_QL75_UX380_CR0,2,380,562_.jpg" alt=""/>
+                                <img src="https://m.media-amazon.com/images/M/MV5BYzYyN2FiZmUtYWYzMy00MzViLWJkZTMtOGY1ZjgzNWMwN2YxXkEyXkFqcGc@._V1_QL75_UX380_CR0,2,380,562_.jpg" alt="" className="movie__poster"/>
                             </figure>
                         </a>
                         <div className="movie__title">

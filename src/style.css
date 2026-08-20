@@ -566,13 +566,14 @@ img {
 
 .search-results {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
-.search-results {
+/* .search-results {
     display: flex;
     flex-wrap: wrap;
-}
+} */
 
 #movies__main {
     flex: 1;
