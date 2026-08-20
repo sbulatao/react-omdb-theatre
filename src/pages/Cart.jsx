@@ -1,6 +1,17 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 export default function Cart({ cart, changeQuantity }) {
+    const [total, setTotal] = useState();
+
+    useEffect(() => {
+        let price = 0;
+        cart.forEach(item => {
+            price += (Number(item.BoxOffice.replace(/[$,]/g, "")) * (item.quantity));
+        });
+
+        setTotal(price.toLocaleString());
+    }, [cart])
+    
   return (
     <div id="movie__body">
         <main className="movie__main">
@@ -40,7 +51,8 @@ export default function Cart({ cart, changeQuantity }) {
                                             onChange={(e) => changeQuantity(movie, e.target.value)}
                                             />
                                         </div>
-                                        <div className="cart__total">$10.00</div>
+                                        {/* replace $ and , to empty so that it can multiply with the quantity */}
+                                        <div className="cart__total">${ (Number(movie.BoxOffice.replace(/[$,]/g, "")) * (movie.quantity)).toLocaleString() }</div>
                                     </div>
                                     )
                                 })
@@ -58,7 +70,7 @@ export default function Cart({ cart, changeQuantity }) {
                             </div>
                             <div className="total__item total__price">
                                 <span>Total</span>
-                                <span>$10.00</span>
+                                <span>${total}</span>
                             </div>
 
                             <button className="button button__checkout no-cursor"
