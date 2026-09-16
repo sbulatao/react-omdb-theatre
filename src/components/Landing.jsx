@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // for the search bar to go to /movie and dynamically spawn
 import UndrawMovie from '../assets/undraw_horror-movie_9020.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Landing() {
 
+    const [loading, setLoading] = useState(false);
     const [landingSearch, setLandingSearch] = useState("");
     const navigate = useNavigate();
 
@@ -12,10 +13,12 @@ export default function Landing() {
         e.preventDefault();
         if(!landingSearch.trim()) return;
 
-        // save search from landing
-        localStorage.setItem("Title", landingSearch);
-        // goes to /movies
-        navigate('/movies'); 
+        setLoading(true); // turns loading on
+        localStorage.setItem("Title", landingSearch);  // save search from landing
+        
+        setTimeout(() => { // adding timer delay to see spinner
+            navigate('/movies');  // goes to /movies
+        }, 3000) // 3 seconds delay
     };
 
   return (
@@ -43,9 +46,16 @@ export default function Landing() {
                                 value={landingSearch}
                                 onChange={e => setLandingSearch(e.target.value)}
                             />
+                            {loading ? (
+                            <button type="submit" className="search__button">
+                                <FontAwesomeIcon icon="spinner" spin/>
+                            </button>
+                            ) : (
                             <button type="submit" className="search__button">
                                 <FontAwesomeIcon icon="search"></FontAwesomeIcon>
                             </button>
+                            )}
+                            
                             </form>
                         {/* </div> */}
                     </div>
