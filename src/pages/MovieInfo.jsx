@@ -37,7 +37,9 @@ export default function MovieInfo({ addToCart, cart }) {
     if (loading) {
         return (
             <div className="container">
-                <FontAwesomeIcon icon="spinner" className="spinner" spin size="3x" />
+                <div className="row">
+                    <FontAwesomeIcon icon="spinner" className="spinner" spin size="3x" />
+                </div>
             </div>
         );
     }
@@ -46,7 +48,9 @@ export default function MovieInfo({ addToCart, cart }) {
     if (!movie || movie.Response === "False") {
         return (
             <div className="container">
-                <h2>Movie Not Found!</h2>
+                <div className="row">
+                    <h2>Movie Not Found!</h2>
+                </div>
                 <Link to="/movies" className="button">Back to Search</Link>
             </div>
         );
@@ -95,7 +99,6 @@ export default function MovieInfo({ addToCart, cart }) {
                                 <h4 className="modal__boxoffice"><strong>Box Office:</strong> {movie.BoxOffice !== "N/A" ? movie.BoxOffice : "N/A"}</h4>
                             </div>
                             
-                            {/* <button className='button'>Add to Cart</button> */}
                             { added ? (
                                 <Link to={'/cart'} className="movie__link">
                                     <button className='button'>Checkout</button>
