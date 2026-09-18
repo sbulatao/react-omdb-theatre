@@ -1,0 +1,27 @@
+/* FOOTER */
+footer {
+    background-color: #242424;
+}
+
+.footer__logo {
+  display: flex;
+  color: #fff;
+}
+
+.footer__logo--img {
+  width: 160px;
+  filter: grayscale(1) invert(1);
+}
+
+.footer__link,
+.footer__copyright {
+  color: #fff;
+}
+
+.footer__list {
+  margin: 20px 0 24px 0;
+}
+
+.footer__link {
+  padding: 0 8px;
+}
