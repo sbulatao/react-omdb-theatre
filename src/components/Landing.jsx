@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Landing.css';
 import { useNavigate } from 'react-router-dom'; // for the search bar to go to /movie and dynamically spawn
 import UndrawMovie from '../assets/undraw_horror-movie_9020.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
