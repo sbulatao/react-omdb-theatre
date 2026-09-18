@@ -1035,7 +1035,7 @@ footer {
 /* MOBILE RESPONSIVENESS */
 /* 1280px, 1024px, 768px, 640px */
 
-@media(max-width: 1372px) {
+@media(max-width: 1280px) {
     .button__menu {
         display: block;
         color: #6030b1;
