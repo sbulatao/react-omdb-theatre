@@ -1,0 +1,12 @@
+/* FEATURED */
+.movie__ratings {
+  color: #fabf2a;
+}
+
+.movie__title .movie__year {
+  font-size: 24px;
+}
+
+.boxoffice__price {
+  font-size: 16px;
+}
