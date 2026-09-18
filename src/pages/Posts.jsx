@@ -240,9 +240,9 @@ export default function Posts() {
             : (<div className="reviews">
                 {posts.length === 0 
                 ? 'No reviews found.' 
-                : (posts.map(post => {
+                : (posts.map((post, index) => {
                     return (
-                        <div key={post.id} className='review__cards'>
+                        <div key={index} className='review__cards'>
                             <h3 className='review__title'>{post.title}</h3>
                             <p className='review__para'>{post.description}</p>
                             <small>
