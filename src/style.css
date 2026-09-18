@@ -1035,26 +1035,7 @@ footer {
 /* MOBILE RESPONSIVENESS */
 /* 1280px, 1024px, 768px, 640px */
 
-/* index.html :: looks good */
-/* @media(max-width: 1280px) {
-
-} */
-
-/* index.html :: looks good */
-/* @media(max-width: 1024px){
-
-} */
-
-/* @media(max-width: 768px) { */
-/* @media(max-width: 860px) { */
-/* @media(max-width: 1160px) { */
-/* @media(max-width: 1265px) { */
 @media(max-width: 1372px) {
-/* index.html :: change navbar to menu */
-    .navbar__links {
-        display: none;
-    }
-
     .button__menu {
         display: block;
         color: #6030b1;
