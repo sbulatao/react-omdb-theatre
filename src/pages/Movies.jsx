@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import './Movies.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Movie from '../components/ui/Movie'
 import Browse from '../components/Browse'
