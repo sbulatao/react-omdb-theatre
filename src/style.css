@@ -8,7 +8,6 @@
 }
 
 .container {
-  /* padding: 10px 20px 10px 20px; */
   padding: 56px 0;
 }
 
@@ -51,7 +50,6 @@ i {
 }
 
 section {
-  /* background-color: rgb(245, 245, 245); */
   transition: all 300ms ease;
 }
 
@@ -65,7 +63,6 @@ input {
   border: 1px solid #0a1f44;
   color: #0a1f44;
   display: inline-block;
-  /* height: 70px; */
   line-height: 40px;
   outline: none;
   padding: 0 15px;
@@ -153,8 +150,6 @@ img {
   border-radius: 50%;
   position: absolute;
   top: 64px;
-  /* bottom: -4px; */
-  /* right: -12px; */
   right: 30px;
   pointer-events: none;
 }
@@ -334,12 +329,10 @@ select {
 
 .movie__title:hover {
   text-decoration: underline;
-  /* cursor: not-allowed; */
 }
 
 .movie__year:hover {
   text-decoration: underline;
-  /* cursor: not-allowed; */
 }
 
 
@@ -373,56 +366,54 @@ footer {
 
 /* MODAL MOVIE */
 .modal__movie {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 2000;
-    display: none; /* Hidden by default */
-    align-items: center;
-    justify-content: center;
-    color: white;
-    padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 2000;
+  display: none; /* Hidden by default */
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 20px;
 }
 
-/* This class is added by JS to show the modal */
 .modal__movie.modal--open {
-    display: flex;
+  display: flex;
 }
 
 .modal__movie--content {
-    /* background-color: #242424; */
-    display: flex;
-    max-width: 800px;
-    width: 100%;
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .modal__poster__left img {
-    /* width: 300px; */
-    height: 100%;
-    object-fit: cover;
+  /* width: 300px; */
+  height: 100%;
+  object-fit: cover;
 }
 
 .modal__description {
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 /* 5. The X Button */
 .modal__exit {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 10;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
 }
 
 
@@ -590,42 +581,41 @@ footer {
 
 @media(max-width: 1280px) {
     .button__menu {
-        display: block;
-        color: #6030b1;
+      display: block;
+      color: #6030b1;
     }
 
     .movie {
-        width: calc(100%/2);
+      width: calc(100%/2);
     }
 }
     
 @media(max-width: 640px) {
 /* index.html :: change search bar and search icon */
     .search__bar {
-        flex-direction: column;
-        align-items: center;
+      flex-direction: column;
+      align-items: center;
     }
 
     .search__button {
-        width: 100%;
-        margin: 0;
+      width: 100%;
+      margin: 0;
     }
 }
 
 /* Mobile Responsive */
 @media (max-width: 600px) {
     .modal__movie--content {
-        flex-direction: column;
-        max-height: 90vh;
-        overflow-y: auto;
+      flex-direction: column;
+      max-height: 90vh;
+      overflow-y: auto;
     }
 
     .modal__poster__left, .modal__description {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        /* align-items: center; */
-    }
+      width: 100%;
+      display: flex;
+      justify-content: center;
+  }
 
     .movie {
         width: calc(100%);
