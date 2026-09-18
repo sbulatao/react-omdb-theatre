@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
+import './Posts.css'
 import { auth, db } from '../firebase/init';
 import { onAuthStateChanged } from 'firebase/auth';
 import { collection, addDoc, getDocs, getDoc, doc, query, where, updateDoc, deleteDoc } from "firebase/firestore"
@@ -236,7 +236,19 @@ export default function Posts() {
             <h2 className='all__reviews'>All Reviews</h2>
 
             {loading 
-            ? 'Loading reviews...' 
+            ? ( new Array(4).fill(0).map((index) => (
+                <div className="reviews" key={index}>
+                    <div className='review__cards--skeleton'>
+                        <h3 className="review__para">
+                            <h3 className='review__title--skeleton'></h3>
+                        </h3>
+                        <p className="review__para">
+                            <p className='review__para--skeleton'></p>
+                        </p>
+                    </div>
+                </div> 
+                ))
+            )
             : (<div className="reviews">
                 {posts.length === 0 
                 ? 'No reviews found.' 
