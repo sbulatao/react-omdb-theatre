@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import './Highlights.css'
 import Highlight from './ui/Highlight'
 
 // ADDED SECTION
