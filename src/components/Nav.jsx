@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from 'react-router';
-// import logout from '../pages/Login';
 import { auth } from '../firebase/init'; 
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 

@@ -103,7 +103,7 @@ export default function Movies() {
                     <div className="search-results"> 
                         {/* <!-- movies --> */}
                         {loading ? (
-                            <FontAwesomeIcon icon="spinner" className='spinner movies__loading--spinner'></FontAwesomeIcon>
+                            <FontAwesomeIcon icon="spinner" className='spinner movies__loading--spinner' spin size='3x' />
                         ) : (
                             movies.map((movie) => (
                                 <Movie
