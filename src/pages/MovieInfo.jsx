@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './MovieInfo.css';
 import { useParams, Link } from 'react-router'; // or 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
