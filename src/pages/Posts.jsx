@@ -240,7 +240,7 @@ export default function Posts() {
                 <div className="review__cards" key={index}>
                     <div className='review__cards--skeleton'>
                         <div className="review__title">
-                            <div className='review__title--skeleton'></div>
+                            <h3 className='review__title--skeleton' aria-hidden="true"></h3>
                         </div>
                         <div className="review__para">
                             <div className='review__para--skeleton'></div>
