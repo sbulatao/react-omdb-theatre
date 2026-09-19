@@ -236,15 +236,15 @@ export default function Posts() {
             <h2 className='all__reviews'>All Reviews</h2>
 
             {loading 
-            ? ( new Array(4).fill(0).map((index) => (
-                <div className="reviews" key={index}>
+            ? ( new Array(4).fill(0).map((_, index) => (
+                <div className="review__cards" key={index}>
                     <div className='review__cards--skeleton'>
-                        <h3 className="review__para">
-                            <h3 className='review__title--skeleton'></h3>
-                        </h3>
-                        <p className="review__para">
-                            <p className='review__para--skeleton'></p>
-                        </p>
+                        <div className="review__title">
+                            <div className='review__title--skeleton'></div>
+                        </div>
+                        <div className="review__para">
+                            <div className='review__para--skeleton'></div>
+                        </div>
                     </div>
                 </div> 
                 ))
@@ -252,9 +252,9 @@ export default function Posts() {
             : (<div className="reviews">
                 {posts.length === 0 
                 ? 'No reviews found.' 
-                : (posts.map((post, index) => {
+                : (posts.map((post) => {
                     return (
-                        <div key={index} className='review__cards'>
+                        <div key={post.id} className='review__cards'>
                             <h3 className='review__title'>{post.title}</h3>
                             <p className='review__para'>{post.description}</p>
                             <small>

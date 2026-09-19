@@ -78,11 +78,11 @@
   color: red;
 }
 
-.review__cards--skeleton {
+/* .review__cards--skeleton {
   border: 1px solid #ccc;
   padding: 15px;
   margin: 15px 0;
-}
+} */
 
 .review__title--skeleton {
   width: 80px;
