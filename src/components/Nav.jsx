@@ -44,10 +44,12 @@ export default function Nav( {toggleTheme, numberOfItems} ) {
     <nav>
         <div className="navbar">
             {/* NAVBAR LOGO */}
-            <div className="navbar__logo">
-                <FontAwesomeIcon icon="film" size='3x'></FontAwesomeIcon>
-                <div className="navbar__logo--title">OMDb Theater</div>
-            </div>
+            <Link to='/'>
+                <div className="navbar__logo">
+                    <FontAwesomeIcon icon="film" size='3x'></FontAwesomeIcon>
+                    <div className="navbar__logo--title">OMDb Theater</div>
+                </div>
+            </Link>
 
             {/* LINKS */}
             <ul className="navbar__links">
